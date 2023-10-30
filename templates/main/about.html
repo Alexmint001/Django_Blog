@@ -1,21 +1,33 @@
 {% extends 'base.html' %}
-{% block content %}
+{% block base %}
 {% load static %}
 <div id="colorlib-main">
     <section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
         <div class="container-fluid px-0">
             <div class="row d-flex">
                 <div class="col-md-6 d-flex">
-                    <div class="img d-flex align-self-stretch align-items-center js-fullheight"
-                        style="background-image:url(images/about.jpg);">
+                    
+                    <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
+                        <h2 class="mb-4"><span>소방</span>과 <span>안전</span>을 위해 노력하는 <span>Fire Helper</span>를 소개합니다.</h2>
+                        <p>우리는 소방에 대한 인식과 이해를 높이기 위해 이 블로그를 만들었습니다.</p>
+                        <p>이 블로그는 사람들이 화재 예방, 비상 대응 및 소방 시설에 대한 지식을 습득하고 안전한 생활 환경을 조성하는 데 도움을 주기 위해 다양한 정보를 제공합니다.</p>
+                        <p>블로그에서는 다음과 같은 내용을 다룹니다:</p>
+                        <ul>
+                            <li>화재 예방 및 안전한 생활 습관에 대한 팁과 가이드라인</li>
+                            <li>비상 상황에서의 대처 방법과 효과적인 대피 절차</li>
+                            <li>소방 시설과 장비에 대한 이해와 관리 방법</li>
+                            <li>소방에 관련된 최신 뉴스, 이벤트 및 규정 업데이트</li>
+                        </ul>
+                            <p>또한, 블로그는 다양한 형식의 콘텐츠를 제공합니다.</p> 
+                            <p>정보 기사, 안전 교육 비디오, 전문가 인터뷰, 사용자 이야기 및 팁 등을 포함하여 독자들에게 폭넓은 시각과 흥미로운 내용을 제공합니다.</p>
+                            
+                            <p>이 블로그는 모든 사람들이 소방에 대한 중요성을 알고, 안전한 환경을 만들기 위해 행동할 수 있도록 돕는데 목적을 두고 있습니다.</p> <p>우리는 소방에 대한 인식과 지식을 함께 나누며, 더 안전한 사회를 만들어 나가기 위해 노력할 것입니다.</p>
+                            
+                            <p>많은 사람들이 이 블로그를 통해 소방에 대한 지식과 인식을 향상시키고, 안전한 삶을 영위할 수 있기를 바랍니다.</p>
                     </div>
                 </div>
                 <div class="col-md-6 d-flex align-items-center">
-                    <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
-                        <h2 class="mb-4">I'm <span>Andrea Moore</span> a Scotish Blogger &amp; Explorer</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                            It is a paradisematic country, in which roasted parts of sentences fly into your mouth. It
-                            is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                    <div class="img d-flex align-self-stretch align-items-center js-fullheight" style="background-image:url({% static 'images/firefighters-1.jpg' %})">
                     </div>
                 </div>
             </div>
@@ -25,28 +37,29 @@
 </div><!-- END COLORLIB-PAGE -->
 
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
         <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-            stroke="#F96D00" />
-    </svg></div>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+    </svg>
+</div>
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/scrollax.min.js"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'js/scrollax.min.js' %}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="js/google-map.js"></script>
-<script src="js/main.js"></script>
+<script src="{% static 'js/google-map.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 
 </body>
 

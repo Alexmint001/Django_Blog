@@ -39,7 +39,7 @@
             <nav id="colorlib-main-menu" role="navigation">	</nav>
     
         <div class="colorlib-footer">
-            <h1 id="colorlib-logo" class="mb-5">Fire <span>Helper</span></h1>
+            <a href="{% url 'main:index' %}"><h1 id="colorlib-logo" class="mb-5">Fire <span>Helper</span></h1></a>
             <p class="pfooter"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;
                 <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
@@ -61,12 +61,30 @@
                     <div class="col-md-6 d-flex align-items-center" style="background-color: rgb(220, 120, 120);">
                         <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
                             <h2 class="mb-4">A Life-Saving Information Sharing Ground</h2>
+                            
+                            {% if user.is_authenticated %}
+                                <button type="button" onclick="location.href=`{% url 'accounts:logout' %}`">Log Out</button>
+                                <button type="button" onclick="location.href=`{% url 'blog:post_list' %}`">Blog Entry</button>
+                                <button type="button" onclick="location.href=`{% url 'accounts:profile' %}`">Profile</button>
+                            {% else %}
+                            {% if request.resolver_match.url_name == "login" %}
                             <p>If you have an account with us. please log in.</p>
+                            {% endif %}
 
-                            <button type="button" onclick="location.href=`{% url 'accounts:login' %}`">Log IN</button>
-                            <button type="button" onclick="location.href=`{% url 'accounts:signup' %}`">Sign Up</button>
-                            <button type="button" onclick="location.href=`{% url 'blog:post_list' %}`">Blog Entry</button>
+                            {% block form %}
+                            {% endblock %}
 
+                            {% if request.resolver_match.url_name == "login" or request.resolver_match.url_name == "index"%}
+                                <button type="submit"  value="submit" onclick="location.href=`{% url 'accounts:login' %}`">Log In</button>
+                            {% endif %}
+                            <button type="submit"  value="submit" onclick="location.href=`{% url 'accounts:signup' %}`">Sign Up</button>
+                            {% if request.resolver_match.url_name == "signup" %}
+                                <button type="submit"  value="submit" onclick="location.href=`{% url 'accounts:login' %}`">return back</button>
+                            {% endif %}
+                                
+                                
+                            </form>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

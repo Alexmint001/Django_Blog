@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,14 @@
     <title>프로필</title>
 </head>
 <body>
+    <img src="{% if user.profile.profile_image %}{{ user.profile.profile_image.url }}{% else %}{% static 'images/empty_image.jpg' %}{% endif %}" alt="">
+
     <h1>프로필 페이지입니다.</h1>
     <p>{{user}}의 프로필 페이지입니다.</p>
+    <a href="{% url 'accounts:profile_update' %}">프로필 편집</a>
+    <button type="button" onclick="location.href=`{% url 'accounts:re_password' %}`">Change Password</button>
+
+    <a href="{% url 'main:index' %}">메인페이지</a>
 </body>
 </html>
+

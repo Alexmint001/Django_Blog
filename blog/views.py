@@ -6,6 +6,7 @@ from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 class PostListView(ListView):
     model = Post
@@ -85,8 +86,22 @@ def _404_errorpage(request, pk):
 
 
 def CategoryView(request, category_name):
+    # category = get_object_or_404(Category, name=category_name)
+    # category_posts = Post.objects.filter(category = category)
+    # categories = Category.objects.all()
+    # return render(
+    #     request,
+    #     "blog/category.html",
+    #     {
+    #         "category_name": category_name,
+    #         "category_posts": category_posts,
+    #     },
+    # )
+    page = request.GET.get("page")
     category = get_object_or_404(Category, name=category_name)
-    category_posts = Post.objects.filter(category = category)
+    category_posts = Post.objects.filter(category=category)
+    paginator = Paginator(category_posts, 5)
+    posts = paginator.get_page(page)
     categories = Category.objects.all()
     return render(
         request,
@@ -94,5 +109,7 @@ def CategoryView(request, category_name):
         {
             "category_name": category_name,
             "category_posts": category_posts,
+            "categories": categories,
+            "posts": posts,
         },
     )
