@@ -59,7 +59,6 @@ class ProfileUpdateView(View):
 profile_update = ProfileUpdateView.as_view()
 
 
-
 signup = CreateView.as_view(
     form_class = CustomUserCreationForm,
     template_name = 'accounts/form.html',
@@ -74,6 +73,16 @@ logout = LogoutView.as_view(
     next_page = '/accounts/login/'
 )
 
+
+
+
+
+
+
+
+
+
+## CBV로 변경필요
 @login_required
 def profile(request):
     return render(request, 'accounts/profile.html')

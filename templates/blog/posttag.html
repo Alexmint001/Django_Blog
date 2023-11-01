@@ -1,0 +1,59 @@
+{% extends 'base_detail.html' %}
+{% block content %}
+{% load static %}
+
+<h1>메인페이지</h1>
+<div id="colorlib-main">
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-xl-8 py-5 px-md-5">
+                    <div class="row pt-md-4">
+                        {% for post in tagposts %}
+                            <div class="col-md-12">
+                                <div class="blog-entry ftco-animate d-md-flex">
+                                    <a href="#" class="img img-2" style="background-image: url({% if post.image_upload %}{{ post.image_upload.url }}{% else %}{% static 'images/empty_image.jpg' %}{% endif %})"></a>
+                                    <div class="text text-2 pl-md-4">
+                                        <h3 class="mb-2"><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h3>
+                                        <div class="meta-wrap">
+                                            <p class="meta">
+                                                <span><i class="icon-calendar mr-2"></i>{{post.created_at}}</span>
+                                                <span><i class="icon-comment2 mr-2"></i>조회수 : {{post.view_count}}</span>
+                                            </p>
+                                        </div>
+                                        <p class="mb-4">
+                                            A small river named Duden flows by their place and supplies
+                                            it with the necessary regelialia.
+                                        </p>
+                                        <p>
+                                            <a href="{% url 'blog:post_detail' post.pk %}" class="btn-custom">
+                                                Read More
+                                                <span class="ion-ios-arrow-forward"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="block-27">
+                                <ul>
+                                    {% if page_obj.has_previous %}
+                                        <li><a href="?page={{page_obj.previous_page_number}}">&lt;</a></li>
+                                    {% endif %}
+
+                                    {% for p in page_obj.paginator.page_range %}
+                                        <li><a href="?page={{p}}" class="mx-1">{{p}}</a></li>
+                                    {% endfor %}
+    
+                                    {% if page_obj.has_next %}
+                                            <li><a href="?page={{page_obj.next_page_number}}">&gt;</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
