@@ -73,6 +73,21 @@
                                                     </div>
                                                 </form>
                                             {% endif %}
+                                            <form action="{% url 'blog:create_recomment' post.pk %}" method="post">
+                                                {% csrf_token %}
+                                                {% for recomment in recomment_form %}
+                                                {% if recomment.label != 'Comment' %}
+                                                {{recomment.label}} : {{recomment}}
+                                                {% endif %}
+                                                {% endfor %}
+                                                <input type="hidden" name="comment" value="{{comment.pk}}">
+                                                <input type="submit" value="답글">
+                                            </form>
+                                            {% for recomment in comment.recomment_set.all %}
+                                            <p>{{recomment.author}}</p>
+                                            <p>{{recomment}}</p>
+                                            <p>{{recomment.updated_at}}</p>                                            
+                                            {% endfor %}
                                         {% endfor %}
                                         
                                     </div>

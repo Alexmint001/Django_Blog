@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 
-<h1>메인페이지</h1>
+
 <div id="colorlib-main">
     <section class="ftco-section ftco-no-pt ftco-no-pb">
         <div class="container">
@@ -26,7 +26,7 @@
                                             it with the necessary regelialia.
                                         </p>
                                         <p>
-                                            <a href="{% url 'blog:post_detail' post.pk %}" class="btn-custom">
+                                            <a href="{% url 'blog:post_detail' post.pk %}" class="btn-custom" style="color:#ff7878">
                                                 Read More
                                                 <span class="ion-ios-arrow-forward"></span>
                                             </a>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="block-27">
+                            <div class="pagebtn">
                                 <ul>
                                     {% if page_obj.has_previous %}
                                         <li><a href="?page={{page_obj.previous_page_number}}">&lt;</a></li>
@@ -51,6 +51,9 @@
                                     {% if page_obj.has_next %}
                                             <li><a href="?page={{page_obj.next_page_number}}">&gt;</a></li>
                                     {% endif %}
+                                </ul>
+                                <ul>
+                                    <div style="display:flex; justify-content:flex-end;"><button type="button" onclick="location.href=`{% url 'blog:post_new' %}`" class="listbtn">글쓰기</button></div>
                                 </ul>
                             </div>
                         </div>

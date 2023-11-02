@@ -1,0 +1,71 @@
+.indexbtn {
+    background-color: #e7bfbf;
+    border: 1px solid #e7bfbf;
+    border-radius: 10px;
+    color:gray
+}
+.indexbtn:hover {
+    background-color: #ff7878;
+    border: 1px solid white;
+    border-radius: 10px;
+    color:white;
+    transition:0.2s
+}
+
+.linkbtn {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.linkbtn:hover {
+    background-color: #ff7878;
+    border: 1px solid white;
+    border-radius: 5px;
+    color:white;
+    transition:0.2s
+}
+
+.prf_img:hover {
+    border:5px solid white;
+    transition:0.2s;
+}
+
+.listbtn {
+    background-color: #fff;
+    border: 1px solid #ff7878;
+    border-radius: 10px;
+    color:#ff7878
+}
+.listbtn:hover {
+    background-color: #ff7878;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    color:#fff;
+    transition:0.2s
+}
+
+.pagebtn ul {
+    padding: 0;
+    margin: 0; 
+
+}
+.pagebtn ul li {
+    display: inline-block;
+    margin-bottom: 4px;
+    font-weight: 400; 
+}
+.pagebtn ul li a {
+    border: 1px solid #ff7878;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%; 
+    color:#ff7878;
+}
+.pagebtn ul li a:hover {
+    background: #ff7878;
+    color: #fff;
+    border: 1px solid transparent; 
+}

@@ -48,3 +48,14 @@ class Tag(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Recomment(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    message = models.CharField('대댓글', max_length = 150)
+    author = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True
+    )
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.message

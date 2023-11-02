@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{% static 'ss/flaticon.css' %}">
     <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 </head>
 
 <body>
@@ -38,8 +39,7 @@
         <aside id="colorlib-aside" role="complementary" class="js-fullheight">
             <nav id="colorlib-main-menu" role="navigation">
                 <ul>
-                    <li><a href="#">Main</a></li>
-                    <li><a href="{% url 'blog:post_list' %}">Work</a></li>
+                    <li><a href="{% url 'blog:post_list' %}">Main</a></li>
                     <li><a href="{% url 'main:about' %}">About</a></li>
                 </ul>
             </nav>
@@ -51,7 +51,7 @@
                     <form action="#" class="colorlib-subscribe-form">
                         <div class="form-group d-flex">
                             <div class="icon"><span class="icon-paper-plane"></span></div>
-                            <input type="text" class="form-control" placeholder="Enter Email Address">
+                            <input type="text" class="form-control" placeholder="Enter Email Address" style="border: 1px solid #ff7878 !important">
                         </div>
                     </form>
                 </div>

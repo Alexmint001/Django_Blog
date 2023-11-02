@@ -1,8 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DeleteView, UpdateView, DetailView, CreateView
-from .models import Post, Comment, Tag, Category
-from .forms import PostForm, CommentForm
+from .models import Post, Comment, Tag, Category, Recomment
+from .forms import PostForm, CommentForm, RecommentForm
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -186,3 +186,24 @@ def _404_errorpage(request, pk):
 # 삭제된 게시물 접속 시 404 에러페이지 구현
     object = get_object_or_404(Post, pk=pk)
     return render(request, '404.html', {'object':object})
+
+
+class ReCommentCreateView(LoginRequiredMixin, CreateView):
+    model = Recomment
+    form_class = RecommentForm
+    template_name = 'blog/form.html'
+    
+    def form_valid(self, form):
+        post = get_object_or_404(Post, pk=self.kwargs['pk'])
+        # comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
+        recomment = form.save(commit=False)
+        recomment.author = self.request.user
+        recomment.post = post
+        # recomment.comment = comment
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse_lazy('blog:post_detail', kwargs = {'pk':self.object.post.pk})
+    
+create_recomment = ReCommentCreateView.as_view()
+
