@@ -51,7 +51,7 @@ class Tag(models.Model):
     
 class Recomment(models.Model):
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
-    message = models.CharField('대댓글', max_length = 150)
+    message = models.TextField('대댓글', max_length = 150)
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )

@@ -17,13 +17,37 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name','last_name']
-
+        widgets = {
+                'first_name': forms.TextInput(
+                    attrs={
+                        'class': 'form-control'
+                    }
+                ),
+                'last_name': forms.TextInput(
+                    attrs={
+                        'class': 'form-control'
+                    }
+                )
+            }
 
 class ProfileForm(forms.ModelForm):
     profile_image = forms.ImageField(required=False) # 선택적으로 입력할 수 있음.
     class Meta:
         model = Profile
         fields = ['nickname','profile_image']
+        widgets = {
+                'nickname': forms.TextInput(
+                    attrs={
+                        'class': 'form-control'
+                    }
+                ),
+                'profile_image': forms.ClearableFileInput(
+                    attrs={
+                        'class': 'profile_image'
+                    }
+                )
+            }
+    
         
 class CustomUserCreationForm(UserCreationForm):
     nickname = forms.CharField(max_length=64)

@@ -15,8 +15,22 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['message']
+        widgets = {
+            'message': forms.TextInput(
+                attrs={
+                    'class': 'form-control'
+                }
+            )
+        }
 
 class RecommentForm(forms.ModelForm):
     class Meta:
         model = Recomment
         fields = ['message', 'comment']
+        widgets = {
+            'message': forms.TextInput(
+                attrs={
+                    'class': 'form-control'
+                }
+            )
+        }
