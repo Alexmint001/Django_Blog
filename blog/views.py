@@ -195,11 +195,11 @@ class ReCommentCreateView(LoginRequiredMixin, CreateView):
     
     def form_valid(self, form):
         post = get_object_or_404(Post, pk=self.kwargs['pk'])
-        # comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
+        comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
         recomment = form.save(commit=False)
         recomment.author = self.request.user
         recomment.post = post
-        # recomment.comment = comment
+        recomment.comment = comment
         return super().form_valid(form)
     
     def get_success_url(self):

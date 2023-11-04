@@ -12,23 +12,28 @@ class PostForm(forms.ModelForm):
         fields = ['category', 'title', 'content', 'image_upload', 'tags'] # counter같은 값은 건들면 안되니까!
 
 class CommentForm(forms.ModelForm):
+    
+    labels =''
     class Meta:
         model = Comment
-        fields = ['message']
+        fields = ['content']
         widgets = {
-            'message': forms.TextInput(
+            'content': forms.TextInput(
                 attrs={
                     'class': 'form-control'
                 }
             )
         }
+        labels = {
+            'content': '',
+        }
 
 class RecommentForm(forms.ModelForm):
     class Meta:
         model = Recomment
-        fields = ['message', 'comment']
+        fields = ['content']
         widgets = {
-            'message': forms.TextInput(
+            'content': forms.TextInput(
                 attrs={
                     'class': 'form-control'
                 }
