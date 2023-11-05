@@ -36,12 +36,12 @@ class Comment(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )
-    content = models.TextField()
+    comment_content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     
     def __str__(self):
-        return self.content
+        return self.comment_content
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -51,11 +51,11 @@ class Tag(models.Model):
     
 class Recomment(models.Model):
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
-    content = models.TextField('recomment', max_length = 150)
+    recomment_content = models.TextField('recomment', max_length = 150)
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return self.content
+        return self.recomment_content

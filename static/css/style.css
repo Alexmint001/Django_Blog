@@ -8484,8 +8484,8 @@ h1, h2, h3, h4, h5,
   color: #000000; }
   .ftco-about .text h2 span {
     font-weight: 900;
-    color: #1eafed; 
-    /* color: #d95600;  */
+    /* color: #1eafed;  */
+    color: #d95600; 
   }
 
 .btn {
