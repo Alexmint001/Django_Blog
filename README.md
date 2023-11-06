@@ -31,8 +31,8 @@
     <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 </div>
 
-### 2.2 배포 URL
-
+### 2.2 배포 URL(AWS Lightsail)
+http://15.165.255.207:8000/
 ## 3. 프로젝트 구조와 개발 일정
 
 ### 3.1 프로젝트 구조
