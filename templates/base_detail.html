@@ -22,7 +22,7 @@
             {% for category in categories %}
                 <li>
                     <a href="{% url 'blog:category' category.name %}">
-                        {{ category.category_name }}
+                        {{ category.name }}
                     </a>
                 </li>
             {% endfor %}
