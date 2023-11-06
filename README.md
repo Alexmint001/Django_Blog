@@ -75,11 +75,18 @@
 ## 7. 추가 기능
 
 ## 8. 개발하며 경험한 오류와 해결방법
+- 2023.10.26
+  - admin 페이지 깨지는 문제
+  - 원인: 404Error 페이지 따로 만든다고 `settings.py`에서 `DEBUG` 설정을 `False`로 해놓은 것에서 문제가 발생한 것으로 확인
+    - `DEBUG` 설정을 `False`로 놓으면 `Django`가 디버그 정보를 더이상 제공하지 않으며, 정적파일을 자동으로 제공하지 않음.
+    - `Django`의 admin 페이지는 정적파일인 (JavaScript, CSS 등)을 사용하기 때문에 `DEBUG` 설정이 `False`인 상태에서 페이지가 깨지는 문제가 발생할 수 있습니다.
+  - 해결방안
+    - 정적 파일을 따로 제공하는 `collectstatic` 명령어를 사용하여 `STATIC_ROOT`에 지정된 위치로 복사하여 `DEBUG` 설정이 `FALSE` 이더라도 정적파일을 사용할 수 있도록 하여 해결하였음.
 - 2023.10.27
   - 카테고리 context 문제
     - 원인: `blog`의 `views.py`에서 `category.html`로만 `context`를 넘기는 것 때문에 `base.html`에서 해당 `context`를 받고 싶어도 받을 수 없었다.
   - 해결방안
-    - 해당 문제 해결방법으로 넘기고 싶은 `context`만 따로 utils폴더에 py파일로 만든 후 `settings.py`에 `context_procerssers`로 넘겨서 전체 파일에서 접근할 수 있도록 하였음.
+    - `html`로 넘기고 싶은 `context`만 따로 utils폴더에 py파일로 만든 후 `settings.py`에 `context_procerssers`로 넘겨서 전체 파일에서 접근할 수 있도록 하였음.
   ```python
   # utils/context_processors.py
   from blog.models import Category
@@ -121,14 +128,25 @@
   ...생략...
   ```
 - 2023.10.30
-  - 프로필 업데이트 기능 추가하다가 405 Error 발생
+  - 프로필 업데이트 기능 추가하다가 `405 Error` 발생
     ```
     Method Not Allowed (POST): /accounts/profile_update/
     Method Not Allowed: /accounts/profile_update/
     ```
-  - 원인: urls.py에서 url 중복 관련으로 확인
+  - 원인: `urls.py`에서 url 중복 관련으로 확인
   - 해결방안
-    - 분명히 ProfileUpdateView 클래스를 구현하면서 get 메소드랑 post 메소드 둘다 작성을 해주었고, url 도 중복되지 않도록 작성하였다.
-    - 이유를 찾다가 views.py 에서 def post(self, request) 라고 작성해야 할 것을 하나를 대문자로 def Post(self, request) 라고 작성해서 생긴 오류였다.
-    - 즉, Python의 클래스 메서드는 대소문자를 구분하기 때문에 post 에 대한 기능이 없어서 허용되지 않은 메소드라고 출력한 것.
+    - 분명히 `ProfileUpdateView` 클래스를 구현하면서 `GET` 메소드랑 `POST` 메소드 둘다 작성을 해주었고, url 도 중복되지 않도록 작성하였다.
+    - 이유를 찾다가 `views.py` 에서 `def post(self, request)` 라고 작성해야 할 것을 하나를 대문자로 `def Post(self, request)` 라고 작성해서 생긴 오류였다.
+    - 즉, `Python`의 클래스 메서드는 대소문자를 구분하기 때문에 `post` 에 대한 기능이 없어서 허용되지 않은 메소드라고 출력한 것.
     - 단순한 오타로 발생한 오류이지만, 이를 계기로 더욱 꼼꼼하게 봐야겠다고 생각되었음.
+- 2023.11.01
+  - 댓글 수정 기능을 기존 함수형으로 구현했던 것을 클래스형으로 다시 구현하다가 `404 Error` 발생
+  - 원인: 쿼리 결과에 `comment`가 없습니다.
+    ```
+    Request Method:POST
+    Request URL:http://127.0.0.1:8000/blog/19/comment/edit/
+    Raised by:blog.views.CommentUpdateView
+    ```
+    - `CommentUpdateView` 클래스를 구현하면서 `comment`를 수정하고, `post`의 pk값을 받는 것으로 구현하여 문제가 발생한 것으로 확인.
+  - 해결방안
+    - `models.py`에서 `comment`에 `post`를 외래키로 이미 구현을 해놓았기 때문에 `comment`의 `post`로 접근을 하고, `html`파일에서 `comment.pk`를 인자로 받도록 수정하여 해결하였음.
