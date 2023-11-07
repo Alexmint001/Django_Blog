@@ -465,4 +465,31 @@
     - `CommentUpdateView` 클래스를 구현하면서 `comment`를 수정하고, `post`의 pk값을 받는 것으로 구현하여 문제가 발생한 것으로 확인.
   - 해결방안
     - `models.py`에서 `comment`에 `post`를 외래키로 이미 구현을 해놓았기 때문에 `comment`의 `post`로 접근을 하고, `html`파일에서 `comment.pk`를 인자로 받도록 수정하여 해결하였음.
-   
+    ```python
+    class CommentUpdateView(UserPassesTestMixin, UpdateView):
+        model = Comment
+        form_class = CommentForm
+        template_name = 'blog/form.html'
+    
+        def test_func(self):
+            return self.get_object().author == self.request.user
+    
+        def form_valid(self, form):
+            comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
+            form.instance.author = self.request.user
+            form.instance.post = comment.post
+            return super().form_valid(form)
+    
+        def get_success_url(self):
+            return reverse_lazy('blog:post_detail', kwargs = {'pk':self.object.post.pk})
+    ```
+    ```html
+    ...생략...
+    <form action="{% url 'blog:comment_edit' comment.pk %}" method="post">
+        <div>
+            {% csrf_token %}
+            <input type="text" name="comment_content" placeholder="Edit">
+        </div>
+    </form>
+    ...생략...
+    ```
