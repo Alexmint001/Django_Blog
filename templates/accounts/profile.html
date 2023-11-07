@@ -42,13 +42,13 @@
                         </div>
                     </div>
                     <div class="col-md-4 d-flex align-items-center" style="background-color: rgb(220, 120, 120);">
+                        <div style="position: fixed; top: 0; right: 0;">
+                            <a href="{% url 'main:index' %}"><img class="w-25 p-3" src="{% static 'images/backtomain.png' %}" alt=""></a>
+                        </div>
                         <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate text-center">
                             {% if request.path == '/accounts/profile/' %}
                             <a href="{% url 'accounts:profile_update' %}"><img class="rounded-circle w-50 p-3 mb-4 prf_img" src="{% if user.profile.profile_image %}{{ user.profile.profile_image.url }}{% else %}{% static 'images/empty_image.jpg' %}{% endif %}" alt="" style="background-color: rgb(231, 191, 191);"></a>
                             <div class="text-white .translate-middle">
-                                <div style="position: fixed; top: 0; right: 0;">
-                                    <a href="{% url 'main:index' %}"><img class="w-25 p-3" src="{% static 'images/backtomain.png' %}" alt=""></a>
-                                </div>
                                     <p>{{user}}의 프로필 페이지입니다.</p>
                                     <table class="table">
                                         <tr>
