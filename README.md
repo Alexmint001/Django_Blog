@@ -8,7 +8,7 @@
 - 분야별 종사자 들이 자신들의 업무 노하우에 관련해서 소통할 수 있도록 댓글 기능 구현
 - 카테고리 및 태그 별로 게시글을 확인할 수 있는 기능 구현
 
-## 2. 개발 환경 및 배포 URL
+## 2. 개발 환경
 
 ### 2.1 개발 환경
 #### [FrontEnd]  
@@ -30,9 +30,6 @@
     <img src="https://img.shields.io/badge/visualstudio-007ACC?style=for-the-badge&logo=visualstudio&logoColor=white">
     <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 </div>
-
-### 2.2 배포 URL(AWS Lightsail)
-http://15.165.255.207:8000/ <- 보류
 
 ## 3. 프로젝트 구조와 개발 일정
 
@@ -161,21 +158,21 @@ http://15.165.255.207:8000/ <- 보류
 |app : blog|views명|templates|
 |'/'|post_list|blog/post_list.html|
 |'new/'|post_new|blog/form.html|  
-|'<int:pk>/'|post_detail|blog/post_detail.html|  
-|'<int:pk>/edit/'|post_edit|blog/post_form.html|  
-|'<int:pk>/delete'|post_delete|blog/post_confirm_delete.html|
-|'<str:category_name>/'|categoryview|blog/category.html|    
-|'tag/<str:tag_name>/'|tagview|blog/posttag.html|  
-|'<int:pk>/comment/new/'|comment_new|blog/form.html|  
-|'<int:pk>/comment/edit/'|comment_edit|blog/form.html|  
-|'<int:pk>/comment/delete/'|comment_delete||  
-|'<int:pk>/comment/<int:c_pk>/recomment/'|comment_recomment|blog/form.html|  
+|'<int: pk>/'|post_detail|blog/post_detail.html|  
+|'<int: pk>/edit/'|post_edit|blog/post_form.html|  
+|'<int: pk>/delete'|post_delete|blog/post_confirm_delete.html|
+|'<str: category_name>/'|categoryview|blog/category.html|    
+|'tag/<str: tag_name>/'|tagview|blog/posttag.html|  
+|'<int: pk>/comment/new/'|comment_new|blog/form.html|  
+|'<int: pk>/comment/edit/'|comment_edit|blog/form.html|  
+|'<int: pk>/comment/delete/'|comment_delete||  
+|'<int: pk>/comment/<int: c_pk>/recomment/'|comment_recomment|blog/form.html|  
 
 
 ### 3.3 개발 일정
 <div align="center">
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/11ea9ce8-1f56-4421-af63-861caae0118e"><br>
-- 타임라인 -<br>
+- 타임라인 - - 이미지 수정필요<br>
 <br>
 <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTFwCOIqyeuh7OkWWQB_4qvELZhDqfBEf_jH9kVLdXrmFex1ZbhvHiPnWeqkIH5n0lYfam2PaW7BRX/pubhtml">WBS 스프레드시트 링크</a>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b56bee4f-07e7-4aa5-b8e3-f5eb8ee28a9f"><br>
@@ -190,7 +187,7 @@ http://15.165.255.207:8000/ <- 보류
 - 기능 요구사항(마인드맵) - <br>
 <br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ac898123-b17e-461b-9981-f8c677b6e229"><br>
-- 데이터베이스 모델링(ERD 설계) - <br>
+- 데이터베이스 모델링(ERD 설계) - 이미지 수정필요 <br>
 </div>
 
 ## 5. UI
@@ -215,6 +212,7 @@ http://15.165.255.207:8000/ <- 보류
 |<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/db446e43-2b46-4a45-afae-f1712b82c2b7">07_카테고리별페이지-1|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/93529fb7-b47e-487f-aeb5-034193b9b9bd"><br>08_카테고리별페이지-2|
 |<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/6949b66d-1269-4cb6-a462-861f07dd750f">09_태그별페이지|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/004eef28-0f1d-4cf7-8ed2-03ed72540763"><br>10_콘텐츠별페이지|
 |<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/e6b34e41-ebae-4135-9c28-5a5d18437882">11_댓글작성페이지|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d6be06d0-fc00-4a8b-91bf-30ded70a47f0"><br>12_대댓글작성페이지|
+|13_404Error 페이지||
 
 ## 6. 메인 기능
 ### 블로그 CRUD 기능 구현
