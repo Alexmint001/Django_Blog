@@ -133,24 +133,51 @@ http://15.165.255.207:8000/ <- 보류
  ┃ ┗ 📜context_processors.py  
  ┣ 📂venv  
  ┣ 📜.gitignore  
- ┣ 📜db.sqlite3  
+ ┣ 📜db.qlite3  
  ┣ 📜manage.py  
  ┣ 📜README.md  
  ┣ 📜requirements.txt  
  ┗ 📜secrets.json  
 
 ### 3.2 URL 구조
-
-||||  
-|app:main|views명|templates|  
-|'\'|index|main/index.html|  
+||||
+|-|-|-|
+|app : main|views명|templates|
+|'/'|index|main/index.html|
 |'about/'|about|main/about.html|  
+
+||||
+|-|-|-|
+|app : accounts|views명|templates|
+|'signup/'|signup|accounts/form.html|
+|'login/'|login|accounts/form.html|  
+|'logout/'|logout||  
+|'profile/'|profile|accounts/profile.html|  
+|'change_password/'|change_password|accounts/change_password.html|  
+|'profile_update/'|profile_update|accounts/profile_update.html|  
+
+||||
+|-|-|-|
+|app : blog|views명|templates|
+|'/'|post_list|blog/post_list.html|
+|'new/'|post_new|blog/form.html|  
+|'<int:pk>/'|post_detail|blog/post_detail.html|  
+|'<int:pk>/edit/'|post_edit|blog/post_form.html|  
+|'<int:pk>/delete'|post_delete|blog/post_confirm_delete.html|
+|'<str:category_name>/'|categoryview|blog/category.html|    
+|'tag/<str:tag_name>/'|tagview|blog/posttag.html|  
+|'<int:pk>/comment/new/'|comment_new|blog/form.html|  
+|'<int:pk>/comment/edit/'|comment_edit|blog/form.html|  
+|'<int:pk>/comment/delete/'|comment_delete||  
+|'<int:pk>/comment/<int:c_pk>/recomment/'|comment_recomment|blog/form.html|  
+
 
 ### 3.3 개발 일정
 <div align="center">
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/11ea9ce8-1f56-4421-af63-861caae0118e"><br>
 - 타임라인 -<br>
 <br>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTFwCOIqyeuh7OkWWQB_4qvELZhDqfBEf_jH9kVLdXrmFex1ZbhvHiPnWeqkIH5n0lYfam2PaW7BRX/pubhtml">WBS 스프레드시트 링크</a>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b56bee4f-07e7-4aa5-b8e3-f5eb8ee28a9f"><br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/36cd9cd4-37f3-4c86-b0a3-db0c10084437"><br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ba43a159-fb26-4147-96d2-b312ee47479e"><br>
@@ -168,8 +195,7 @@ http://15.165.255.207:8000/ <- 보류
 
 ## 5. UI
 ### 5-1. 와이어프레임
-- [Mockup 테스트 페이지](https://ovenapp.io/view/RLB4pSeIPvYpCHhRChBNKNLbPwiuccir/6psTJ)  
-<img src="https://github.com/Alexmint001/Django_Blog/assets/142385654/630b1129-0f92-49d3-a034-028a899bf831" width="10%">  
+- [Mockup 테스트 페이지](https://ovenapp.io/view/RLB4pSeIPvYpCHhRChBNKNLbPwiuccir/6psTJ)    
 
 |||
 |-|-|
@@ -180,19 +206,166 @@ http://15.165.255.207:8000/ <- 보류
 |<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ad3e88e0-db38-4f1f-8024-1a9090772640">08_글 수정 시 페이지||
 
 ### 5-2. 실제 UI
+
 |||
 |-|-|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/834269c6-b393-439d-9239-31779f956f62">01_메인페이지 - 로그인 전|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/82263f9d-cea0-40b5-bfc2-756fd5257ee6">02_회원가입 페이지|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/66ad9ddd-5daf-4357-9cb9-ba66647e9fc0">03_프로필 페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/7491d809-41ea-49da-a831-475f012dae99">04_메인페이지 - 로그인 후|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/740fc51f-78a0-400f-93f4-9d937b8b6456">05_블로그 입장|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/dd244027-c34e-4730-86d7-c1e7f00f8830">06_about페이지|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/db446e43-2b46-4a45-afae-f1712b82c2b7">07_카테고리별페이지-1|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/93529fb7-b47e-487f-aeb5-034193b9b9bd">08_카테고리별페이지-2|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/6949b66d-1269-4cb6-a462-861f07dd750f">09_태그별페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/004eef28-0f1d-4cf7-8ed2-03ed72540763">10_콘텐츠별페이지|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/e6b34e41-ebae-4135-9c28-5a5d18437882">11_댓글작성페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d6be06d0-fc00-4a8b-91bf-30ded70a47f0">12_대댓글작성페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/834269c6-b393-439d-9239-31779f956f62">01_메인페이지 - 로그인 전|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/82263f9d-cea0-40b5-bfc2-756fd5257ee6"><br>02_회원가입 페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/66ad9ddd-5daf-4357-9cb9-ba66647e9fc0">03_프로필 페이지|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/7491d809-41ea-49da-a831-475f012dae99"><br>04_메인페이지 - 로그인 후|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/740fc51f-78a0-400f-93f4-9d937b8b6456">05_블로그 입장|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/dd244027-c34e-4730-86d7-c1e7f00f8830"><br>06_about페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/db446e43-2b46-4a45-afae-f1712b82c2b7">07_카테고리별페이지-1|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/93529fb7-b47e-487f-aeb5-034193b9b9bd"><br>08_카테고리별페이지-2|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/6949b66d-1269-4cb6-a462-861f07dd750f">09_태그별페이지|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/004eef28-0f1d-4cf7-8ed2-03ed72540763"><br>10_콘텐츠별페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/e6b34e41-ebae-4135-9c28-5a5d18437882">11_댓글작성페이지|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d6be06d0-fc00-4a8b-91bf-30ded70a47f0"><br>12_대댓글작성페이지|
 
 ## 6. 메인 기능
+### 블로그 CRUD 기능 구현
+  - 게시글 작성 기능 
+    - `PostCreateView(LoginRequiredMixin, CreateView)`로 구현
 
+  - 게시글 수정 기능 
+    - `PostUpdateView(UserPassesTestMixin, UpdateView)`로 구현
+
+  - 게시글 삭제 기능
+    - `PostDeleteView(UserPassesTestMixin, DeleteView)`로 구현
+
+  - 게시글 검색 기능 ( 카테고리 및 태그에 따라 검색이 가능 )
+    - 전체 글 검색 (`PostListView`에 구현하였습니다.)
+    ```python
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        q = self.request.GET.get('q', '')
+
+        if q:
+            queryset = queryset.filter(Q(title__icontains=q) | Q(content__icontains=q))
+        return queryset
+    ```
+    - 카테고리 별 검색 (`CategoryListView`에 구현하였습니다.)
+    ```python
+    def get_queryset(self):
+        self.category = get_object_or_404(Category, name=self.kwargs['category_name'])
+        qc = super().get_queryset().filter(category=self.category)
+
+        q = self.request.GET.get('q', '')
+        if q:
+            qc = qc.filter(Q(title__icontains=q) | Q(content__icontains=q))
+        return qc
+    ```
+    - 태그 별 검색 (`TagListView`에 구현하였습니다.)
+    ```python
+    def get_queryset(self):
+        self.tag = get_object_or_404(Tag, name=self.kwargs['tag_name'])
+        qt = super().get_queryset().filter(tags__name=self.tag)
+
+        q = self.request.GET.get('q', '')
+        if q:
+            qt = qt.filter(Q(title__icontains=q) | Q(content__icontains=q))
+        return qt
+    ```
+
+### 로그인/회원가입 기능
+  - 회원가입 기능 
+    - `CreateView`로 구현
+  - 로그인 기능 (로그인을 한 User만 게시글 작성, 수정, 삭제 가능)
+    - `LoginView`로 로그인 기능 구현 후, `LoginRequiredMixin` 사용
+  - 로그아웃 기능 
+    - `LogoutView`로 로그아웃 기능 구현. `next_page`에 `accounts/login` 작성하여 로그아웃 후 로그인 페이지로 이동하도록 하였음. 
 ## 7. 추가 기능
+  - 게시글 내 사진 업로드 (`models.py`에 `Imagefield` 추가)
+  - 조회수 증가 (`models.py`에 `PositiveIntegerField` 추가)
+  - 비밀번호 변경 기능
+    - 함수형으로 구현
+    ```python
+    # views.py
+    @login_required
+    def change_password(request):
+        if request.method == "POST":
+            form = PasswordChangeForm(request.user, request.POST)
+            if form.is_valid():
+                user = form.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, 'Password successfully changed')
+                return redirect('accounts:profile')
+            else:
+                messages.error(request, 'Password not changed')
+        else:
+            form = PasswordChangeForm(request.user)
+            return render(request, 'accounts/change_password.html',{'form':form})
+    ```
+    ```python
+    # forms.py
+    class PasswordChangeForm(AuthPasswordChangeForm):
+    def clean_new_password1(self):
+        old_password = self.cleaned_data.get('old_password')
+        new_password1 = self.cleaned_data.get('new_password1')
+        
+        if old_password and new_password1:
+            if old_password == new_password1:
+                raise forms.ValidationError('새로운 암호는 기존 암호와 다르게 입력해주세요.')
+        return new_password1
+    ```
+  - 프로필 수정 기능
+    - `ProfileUpdateView(View)`로 구현
+    ```python
+    class ProfileUpdateView(View):
+    def get(self, request):
+        user = get_object_or_404(User, pk=request.user.pk)
+        user_form = UserForm(initial = {
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+        })
+        
+        if hasattr(user, 'profile'):
+            profile = user.profile
+            profile_form = ProfileForm(initial={
+                'nickname': profile.nickname,
+                'profile_image': profile.profile_image,
+            })
+        else:
+            profile_form = ProfileForm()
+            
+        return render(request, 'accounts/profile_update.html', {"user_form": user_form, "profile_form": profile_form})
+    
+    def post(self, request):
+        u = User.objects.get(id=request.user.pk) # 로그인중인 사용자 객체를 얻어옴
+        user_form = UserForm(request.POST, instance=u) # 기존의 것의 업데이트하는 것 이므로 기존의 인스턴스를 넘겨줘야한다. 기존의 것을 가져와 수정하는 것
 
+        # User 폼
+        if user_form.is_valid():
+            user_form.save()
+
+        if hasattr(u, 'profile'):
+            profile = u.profile
+            profile_form = ProfileForm(request.POST, request.FILES, instance=profile) # 기존의 것 가져와 수정하는 것
+        else:
+            profile_form = ProfileForm(request.POST, request.FILES) # 새로 만드는 것
+
+        # Profile 폼
+        if profile_form.is_valid():
+            profile = profile_form.save(commit=False) # 기존의 것을 가져와 수정하는 경우가 아닌 새로 만든 경우 user를 지정해줘야 하므로
+            profile.user = u
+            profile.save()
+
+        return redirect('accounts:profile') # 수정된 화면으로 리다이렉트
+    ```
+  - 닉네임 추가 기능
+  - 댓글 추가
+    - `CommentCreateView(LoginRequiredMixin, CreateView)`로 구현
+  - 댓글 수정
+    - `CommentUpdateView(UserPassesTestMixin, UpdateView)`로 구현
+  - 댓글 삭제
+    - `CommentDeleteView(UserPassesTestMixin, DeleteView)`로 구현
+  - 대댓글
+    - `ReCommentCreateView(LoginRequiredMixin, CreateView)`로 구현
+  - 페이지네이션 기능 구현
+    - `ListView`에 내장된 `paginate` 기능을 사용하였음.
+    ```python
+    class PostListView(ListView):
+    model = Post
+    ordering = '-pk'
+
+    template_name = 'blog/post_list.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+    ```
 ## 8. 개발하며 경험한 오류와 해결방법
 - 2023.10.26
   - admin 페이지 깨지는 문제
@@ -201,6 +374,7 @@ http://15.165.255.207:8000/ <- 보류
     - `Django`의 admin 페이지는 정적파일인 (JavaScript, CSS 등)을 사용하기 때문에 `DEBUG` 설정이 `False`인 상태에서 페이지가 깨지는 문제가 발생할 수 있습니다.
   - 해결방안
     - 정적 파일을 따로 제공하는 `collectstatic` 명령어를 사용하여 `STATIC_ROOT`에 지정된 위치로 복사하여 `DEBUG` 설정이 `FALSE` 이더라도 정적파일을 사용할 수 있도록 하여 해결하였음.
+    - 추가로 DEBUG=TRUE는 개발할 때만 사용하는 설정이며, 배포 시에는 FALSE로 놓고, 정적파일 관리는 nginx 서버에서 하도록 설정해야한다.
 - 2023.10.27
   - 카테고리 context 문제
     - 원인: `blog`의 `views.py`에서 `category.html`로만 `context`를 넘기는 것 때문에 `base.html`에서 해당 `context`를 받고 싶어도 받을 수 없었다.
@@ -270,5 +444,3 @@ http://15.165.255.207:8000/ <- 보류
   - 해결방안
     - `models.py`에서 `comment`에 `post`를 외래키로 이미 구현을 해놓았기 때문에 `comment`의 `post`로 접근을 하고, `html`파일에서 `comment.pk`를 인자로 받도록 수정하여 해결하였음.
    
-- 2023.11.07
-    - AWS lightsail로 배포 후 git pull 이후 static 파일과 media파일을못읽어오는 error 발 
