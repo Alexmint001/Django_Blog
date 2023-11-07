@@ -371,6 +371,23 @@
     context_object_name = 'posts'
     paginate_by = 5
     ```
+    ```html
+    ...생략...
+    <ul>
+        {% if page_obj.has_previous %}
+            <li><a href="?page={{page_obj.previous_page_number}}">&lt;</a></li>
+        {% endif %}
+    
+        {% for p in page_obj.paginator.page_range %}
+            <li><a href="?page={{p}}" class="mx-1">{{p}}</a></li>
+        {% endfor %}
+    
+        {% if page_obj.has_next %}
+                <li><a href="?page={{page_obj.next_page_number}}">&gt;</a></li>
+        {% endif %}
+    </ul>
+    ...생략...
+    ```
 ## 8. 개발하며 경험한 오류와 해결방법
 - 2023.10.26
   - admin 페이지 깨지는 문제
