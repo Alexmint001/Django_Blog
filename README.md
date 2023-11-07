@@ -214,7 +214,18 @@
 |<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/e6b34e41-ebae-4135-9c28-5a5d18437882">11_댓글작성페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d6be06d0-fc00-4a8b-91bf-30ded70a47f0">12_대댓글작성페이지|
 |<img width="100%" alt="13_404Error페이지" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/780c2bd4-0bee-46f1-b2cf-b5661c7db2c5">13_404Error 페이지||
 
+![게시글 수정삭제]()
+![블로그 진입+글쓰기+댓글+수정+대댓글+삭제]()
+![비밀번호 변경]()
+![카테고리 태그]()
+![회원가입]()
 
+### 5-3. 기능 별 GIF
+|||
+|-|-|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/3e30c1f3-48b3-4e0b-bc12-f49ea9ce5f8f">회원가입 및 로그인|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/922df739-2bff-4bb5-81c1-60ae93b1ccd1">카테고리 및 태그 별 게시글, 검색 기능|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b970c89a-8ae1-47cc-9fbf-b43a7ff3b372">블로그진입, 글쓰기, 댓글, 수정, 대댓글, 삭제|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/70e8938d-c6c9-4ed7-aaf1-c1a87e983249">게시글 수정 및 삭제|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/387408a6-2850-4652-82ee-143ba89e4f2b">비밀번호 변경||
 ## 6. 메인 기능
 ### 블로그 CRUD 기능 구현
   - 게시글 작성 기능 
