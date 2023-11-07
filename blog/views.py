@@ -181,7 +181,7 @@ class CommentDeleteView(UserPassesTestMixin, DeleteView):
 
 comment_delete = CommentDeleteView.as_view()
 
-## CBV로 변경 필요
+
 def _404_errorpage(request, pk):
 # 삭제된 게시물 접속 시 404 에러페이지 구현
     object = get_object_or_404(Post, pk=pk)
