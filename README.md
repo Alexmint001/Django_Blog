@@ -25,19 +25,128 @@
     <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
 </div>
 
-### 2-2. 개발 환경
+#### [Tool]
 <div>
     <img src="https://img.shields.io/badge/visualstudio-007ACC?style=for-the-badge&logo=visualstudio&logoColor=white">
     <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 </div>
 
 ### 2.2 배포 URL(AWS Lightsail)
-http://15.165.255.207:8000/
+http://15.165.255.207:8000/ <- 보류
+
 ## 3. 프로젝트 구조와 개발 일정
 
 ### 3.1 프로젝트 구조
+📦@@231026-1107 2차 프로젝트(Django mini)  
+ ┣ 📂.static_root  
+ ┃ ┣ 📂admin  
+ ┃ ┣ 📂css  
+ ┃ ┣ 📂fonts  
+ ┃ ┣ 📂images  
+ ┃ ┣ 📂js  
+ ┃ ┣ 📂scss  
+ ┃ ┣ 📜about.html  
+ ┃ ┣ 📜contact.html  
+ ┃ ┣ 📜fashion.html  
+ ┃ ┣ 📜index.html  
+ ┃ ┣ 📜prepros-6.config  
+ ┃ ┣ 📜single.html  
+ ┃ ┗ 📜travel.html  
+ ┣ 📂accounts  
+ ┃ ┣ 📂migrations  
+ ┃ ┣ 📂__pycache__  
+ ┃ ┣ 📜admin.py  
+ ┃ ┣ 📜apps.py  
+ ┃ ┣ 📜forms.py  
+ ┃ ┣ 📜models.py  
+ ┃ ┣ 📜tests.py  
+ ┃ ┣ 📜urls.py  
+ ┃ ┣ 📜views.py  
+ ┃ ┗ 📜__init__.py  
+ ┣ 📂blog  
+ ┃ ┣ 📂migrations  
+ ┃ ┣ 📂__pycache__  
+ ┃ ┣ 📜admin.py  
+ ┃ ┣ 📜apps.py  
+ ┃ ┣ 📜forms.py  
+ ┃ ┣ 📜models.py  
+ ┃ ┣ 📜tests.py  
+ ┃ ┣ 📜urls.py  
+ ┃ ┣ 📜views.py  
+ ┃ ┗ 📜__init__.py  
+ ┣ 📂firehelper  
+ ┃ ┣ 📂__pycache__  
+ ┃ ┣ 📜asgi.py  
+ ┃ ┣ 📜settings.py  
+ ┃ ┣ 📜urls.py  
+ ┃ ┣ 📜wsgi.py  
+ ┃ ┗ 📜__init__.py  
+ ┣ 📂main  
+ ┃ ┣ 📂migrations  
+ ┃ ┣ 📂__pycache__  
+ ┃ ┣ 📜admin.py  
+ ┃ ┣ 📜apps.py  
+ ┃ ┣ 📜models.py  
+ ┃ ┣ 📜tests.py  
+ ┃ ┣ 📜urls.py  
+ ┃ ┣ 📜views.py  
+ ┃ ┗ 📜__init__.py  
+ ┣ 📂media  
+ ┃ ┣ 📂blog  
+ ┃ ┗ 📂profile_pics  
+ ┣ 📂static  
+ ┃ ┣ 📂css  
+ ┃ ┣ 📂fonts  
+ ┃ ┣ 📂images  
+ ┃ ┣ 📂js  
+ ┃ ┣ 📂scss  
+ ┃ ┣ 📜.DS_Store  
+ ┃ ┣ 📜about.html  
+ ┃ ┣ 📜contact.html  
+ ┃ ┣ 📜fashion.html  
+ ┃ ┣ 📜index.html  
+ ┃ ┣ 📜prepros-6.config  
+ ┃ ┣ 📜single.html  
+ ┃ ┗ 📜travel.html  
+ ┣ 📂templates  
+ ┃ ┣ 📂accounts  
+ ┃ ┃ ┣ 📜agreement.html  
+ ┃ ┃ ┣ 📜change_password.html  
+ ┃ ┃ ┣ 📜form.html  
+ ┃ ┃ ┣ 📜profile.html  
+ ┃ ┃ ┗ 📜profile_update.html  
+ ┃ ┣ 📂blog  
+ ┃ ┃ ┣ 📜category.html  
+ ┃ ┃ ┣ 📜form.html  
+ ┃ ┃ ┣ 📜posttag.html  
+ ┃ ┃ ┣ 📜post_confirm_delete.html  
+ ┃ ┃ ┣ 📜post_detail.html  
+ ┃ ┃ ┗ 📜post_list.html  
+ ┃ ┣ 📂main  
+ ┃ ┃ ┣ 📜about.html  
+ ┃ ┃ ┗ 📜index.html  
+ ┃ ┣ 📜404.html  
+ ┃ ┣ 📜base.html  
+ ┃ ┗ 📜base_detail.html  
+ ┣ 📂utils  
+ ┃ ┣ 📂__pycache__  
+ ┃ ┗ 📜context_processors.py  
+ ┣ 📂venv  
+ ┣ 📜.gitignore  
+ ┣ 📜db.sqlite3  
+ ┣ 📜manage.py  
+ ┣ 📜README.md  
+ ┣ 📜requirements.txt  
+ ┗ 📜secrets.json  
 
-### 3.2 개발 일정
+### 3.2 URL 구조
+
+||||  
+|app:main|views명|templates|  
+|'\'|index|main/index.html|  
+|'about/'|about|main/about.html|  
+
+### 3.3 개발 일정
 <div align="center">
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/11ea9ce8-1f56-4421-af63-861caae0118e"><br>
 - 타임라인 -<br>
@@ -69,6 +178,16 @@ http://15.165.255.207:8000/
 |<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b97dfc1d-8c68-42c2-978e-1855e4439b8e">05_카테고리 별 페이지|<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/cdd3b93c-c6c1-41fe-8b73-391f78ded4ec">06_콘텐츠 별 페이지|
 |<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/8489a293-75ad-4d96-a700-6a447a6ddc3c">07_댓글 작성 시 페이지|<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/47bd4c0a-a2dc-477b-b8ec-033e5275c363">08_글 작성 시 페이지|
 |<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ad3e88e0-db38-4f1f-8024-1a9090772640">08_글 수정 시 페이지||
+
+### 5-2. 실제 UI
+|||
+|-|-|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/834269c6-b393-439d-9239-31779f956f62">01_메인페이지 - 로그인 전|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/82263f9d-cea0-40b5-bfc2-756fd5257ee6">02_회원가입 페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/66ad9ddd-5daf-4357-9cb9-ba66647e9fc0">03_프로필 페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/7491d809-41ea-49da-a831-475f012dae99">04_메인페이지 - 로그인 후|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/740fc51f-78a0-400f-93f4-9d937b8b6456">05_블로그 입장|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/dd244027-c34e-4730-86d7-c1e7f00f8830">06_about페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/db446e43-2b46-4a45-afae-f1712b82c2b7">07_카테고리별페이지-1|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/93529fb7-b47e-487f-aeb5-034193b9b9bd">08_카테고리별페이지-2|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/6949b66d-1269-4cb6-a462-861f07dd750f">09_태그별페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/004eef28-0f1d-4cf7-8ed2-03ed72540763">10_콘텐츠별페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/e6b34e41-ebae-4135-9c28-5a5d18437882">11_댓글작성페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d6be06d0-fc00-4a8b-91bf-30ded70a47f0">12_대댓글작성페이지|
 
 ## 6. 메인 기능
 
@@ -150,3 +269,6 @@ http://15.165.255.207:8000/
     - `CommentUpdateView` 클래스를 구현하면서 `comment`를 수정하고, `post`의 pk값을 받는 것으로 구현하여 문제가 발생한 것으로 확인.
   - 해결방안
     - `models.py`에서 `comment`에 `post`를 외래키로 이미 구현을 해놓았기 때문에 `comment`의 `post`로 접근을 하고, `html`파일에서 `comment.pk`를 인자로 받도록 수정하여 해결하였음.
+   
+- 2023.11.07
+    - AWS lightsail로 배포 후 git pull 이후 static 파일과 media파일을못읽어오는 error 발 
