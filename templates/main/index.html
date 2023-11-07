@@ -67,9 +67,9 @@
                         <div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate mr-5">
                             <h1 class="mb-4" style="color:white">Fire Fighting Blog</h1>
                             
+                            <button type="button" onclick="location.href=`{% url 'blog:post_list' %}`" class="indexbtn">Blog Entry</button>
                             {% if user.is_authenticated %}
                                 <button type="button" onclick="location.href=`{% url 'accounts:logout' %}`" class="indexbtn">Log Out</button>
-                                <button type="button" onclick="location.href=`{% url 'blog:post_list' %}`" class="indexbtn">Blog Entry</button>
                                 <button type="button" onclick="location.href=`{% url 'accounts:profile' %}`" class="indexbtn">Profile</button>
                             {% else %}
                             {% if request.resolver_match.url_name == "login" %}
