@@ -214,12 +214,6 @@
 |<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/e6b34e41-ebae-4135-9c28-5a5d18437882">11_댓글작성페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d6be06d0-fc00-4a8b-91bf-30ded70a47f0">12_대댓글작성페이지|
 |<img width="100%" alt="13_404Error페이지" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/780c2bd4-0bee-46f1-b2cf-b5661c7db2c5">13_404Error 페이지||
 
-![게시글 수정삭제]()
-![블로그 진입+글쓰기+댓글+수정+대댓글+삭제]()
-![비밀번호 변경]()
-![카테고리 태그]()
-![회원가입]()
-
 ### 5-3. 기능 별 GIF
 |||
 |-|-|
