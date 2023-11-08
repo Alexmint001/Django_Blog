@@ -1,6 +1,17 @@
 # Django_Blog - 소방 헬퍼: 생명을 지키는 정보 공유 블로그
 소방 관련 업무를 하는 사람들끼리 업무 관련 꿀팁 및 소방 관련법 변동사항 같은 정보를 공유하는 블로그입니다.
 
+## 목차
+
+[1. 목표와 기능](#1-목표와-기능)<br>
+[2. 개발 환경](#2-개발-환경)<br>
+[3. 프로젝트 구조와 개발 일정](#3-프로젝트-구조와-개발-일정)<br>
+[4. 데이터베이스 모델링(ERD)](#4-데이터베이스-모델링(ERD))<br>
+[5. UI](#5-UI)<br>
+[6. 메인 기능](#6-메인-기능)<br>
+[7. 추가 기능](#7-추가-기능)<br>
+[8. 개발하며 경험한 오류와 해결방법](#8-개발하며-경험한-오류와-해결방법)<br>
+
 ## 1. 목표와 기능
 ### 1.1 목표
 - 소방업무 종사자들끼리 관련 정보를 공유하는 커뮤니티
@@ -216,13 +227,15 @@
 |<img width="100%" alt="13_404Error페이지" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/780c2bd4-0bee-46f1-b2cf-b5661c7db2c5">13_404Error 페이지||
 
 ### 5-3. 기능 별 GIF
+
 |||
 |-|-|
-|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/3e30c1f3-48b3-4e0b-bc12-f49ea9ce5f8f">|회원가입 및 로그인|
-|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/922df739-2bff-4bb5-81c1-60ae93b1ccd1">|카테고리 및 태그 별 게시글, 검색 기능|
-|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b970c89a-8ae1-47cc-9fbf-b43a7ff3b372">|블로그진입, 글쓰기, 댓글, 수정, 대댓글, 삭제|
-<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/70e8938d-c6c9-4ed7-aaf1-c1a87e983249">|게시글 수정 및 삭제|
-|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/387408a6-2850-4652-82ee-143ba89e4f2b">|비밀번호 변경|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/3e30c1f3-48b3-4e0b-bc12-f49ea9ce5f8f">|메인페이지에서 회원가입 및 로그인을 하는 모습|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b970c89a-8ae1-47cc-9fbf-b43a7ff3b372">|메인페이지에서 블로그 진입과 게시글 작성하는 모습, <br>상세글 페이지에서 댓글 작성, 수정, 대댓글, 삭제가 되는 모습|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/70e8938d-c6c9-4ed7-aaf1-c1a87e983249">|목록 페이지에서 게시글 수정 및 삭제가 되는 모습|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/922df739-2bff-4bb5-81c1-60ae93b1ccd1">|카테고리 및 태그 별로 게시글 확인이 가능하며, 카테고리 및 태그 별로 검색이 가능합니다.|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/387408a6-2850-4652-82ee-143ba89e4f2b">|프로필 페이지에서 비밀번호 변경이 가능한 모습|
+
 ## 6. 메인 기능
 ### 블로그 CRUD 기능 구현
   - 게시글 작성 기능 
@@ -333,7 +346,8 @@
     
     def post(self, request):
         u = User.objects.get(id=request.user.pk) # 로그인중인 사용자 객체를 얻어옴
-        user_form = UserForm(request.POST, instance=u) # 기존의 것의 업데이트하는 것 이므로 기존의 인스턴스를 넘겨줘야한다. 기존의 것을 가져와 수정하는 것
+        user_form = UserForm(request.POST, instance=u)
+        # 기존의 것의 업데이트하는 것 이므로 기존의 인스턴스를 넘겨줘야한다. 기존의 것을 가져와 수정하는 것
 
         # User 폼
         if user_form.is_valid():
@@ -347,7 +361,8 @@
 
         # Profile 폼
         if profile_form.is_valid():
-            profile = profile_form.save(commit=False) # 기존의 것을 가져와 수정하는 경우가 아닌 새로 만든 경우 user를 지정해줘야 하므로
+            profile = profile_form.save(commit=False)
+            # 기존의 것을 가져와 수정하는 경우가 아닌 새로 만든 경우 user를 지정해줘야 하므로
             profile.user = u
             profile.save()
 
