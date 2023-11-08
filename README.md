@@ -173,7 +173,7 @@
 <br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/9a2b6f7c-64c0-441b-8097-ad64f04b4a25"><br>
 - 데이터베이스 모델링(ERD 설계)<br>
-
+<a href="https://velog.io/@alexan1027/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EB%A7%81-%EA%B0%9C%EB%85%90-%EB%B0%8F-ERD-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8-%EC%8A%A4%ED%84%B0%EB%94%94">ERD 블로그 정리</a>
 </div>
 
 ## 5. UI
