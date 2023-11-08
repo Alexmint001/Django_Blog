@@ -26,6 +26,7 @@ class PostListView(ListView):
 
 post_list = PostListView.as_view()
 
+
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
@@ -38,6 +39,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 post_new = PostCreateView.as_view()
+
 
 class PostDetailView(DetailView):
     model = Post
@@ -67,7 +69,6 @@ class PostUpdateView(UserPassesTestMixin, UpdateView):
     
     def get_success_url(self):
         return reverse_lazy('blog:post_detail', kwargs = {'pk':self.object.pk})
-
 
 post_edit = PostUpdateView.as_view()
 
@@ -151,6 +152,7 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
 
 comment_new = CommentCreateView.as_view()
 
+
 class CommentUpdateView(UserPassesTestMixin, UpdateView):
     model = Comment
     form_class = CommentForm
@@ -169,6 +171,7 @@ class CommentUpdateView(UserPassesTestMixin, UpdateView):
         return reverse_lazy('blog:post_detail', kwargs = {'pk':self.object.post.pk})
     
 comment_edit = CommentUpdateView.as_view()
+
 
 class CommentDeleteView(UserPassesTestMixin, DeleteView):
     model = Comment
@@ -206,4 +209,3 @@ class ReCommentCreateView(LoginRequiredMixin, CreateView):
         return reverse_lazy('blog:post_detail', kwargs = {'pk':self.object.post.pk})
     
 create_recomment = ReCommentCreateView.as_view()
-

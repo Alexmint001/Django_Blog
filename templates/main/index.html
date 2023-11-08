@@ -80,9 +80,9 @@
                             {% endblock %}
 
                             {% if request.resolver_match.url_name == "login" or request.resolver_match.url_name == "index"%}
+                                <button type="button" onclick="location.href=`{% url 'blog:post_list' %}`" class="indexbtn">Blog Entry</button>
                                 <button type="submit"  value="submit" onclick="location.href=`{% url 'accounts:login' %}`" class="indexbtn">Log In</button>
                             {% endif %}
-                                <button type="button" onclick="location.href=`{% url 'blog:post_list' %}`" class="indexbtn">Blog Entry</button>
                                 <button type="submit"  value="submit" onclick="location.href=`{% url 'accounts:signup' %}`" class="indexbtn">Sign Up</button>
                             {% if request.resolver_match.url_name == "signup" %}
                                 <button type="submit"  value="submit" onclick="location.href=`{% url 'accounts:login' %}`" class="indexbtn">return back</button>
