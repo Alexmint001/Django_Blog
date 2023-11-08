@@ -185,11 +185,11 @@
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b9a92a8a-f022-4d4a-9743-29bbc397cb58"><br>
 - 타임라인 -<br>
 <br>
-<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTFwCOIqyeuh7OkWWQB_4qvELZhDqfBEf_jH9kVLdXrmFex1ZbhvHiPnWeqkIH5n0lYfam2PaW7BRX/pubhtml">WBS 스프레드시트 링크</a><br>
+
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b56bee4f-07e7-4aa5-b8e3-f5eb8ee28a9f"><br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/36cd9cd4-37f3-4c86-b0a3-db0c10084437"><br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ba43a159-fb26-4147-96d2-b312ee47479e"><br>
-- WBS -<br>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTFwCOIqyeuh7OkWWQB_4qvELZhDqfBEf_jH9kVLdXrmFex1ZbhvHiPnWeqkIH5n0lYfam2PaW7BRX/pubhtml">WBS 스프레드시트</a>
 </div>
 
 ## 4. 데이터베이스 모델링(ERD)
