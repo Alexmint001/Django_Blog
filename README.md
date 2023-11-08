@@ -484,3 +484,30 @@
     </form>
     ...생략...
     ```
+2023.11.06
+- AWS lightsail 배포 후 정상적으로 실행되다가 `git pull`하고 나서 media 폴더를 로드하지 못하는 문제가 발생
+    - 원인: nginx와 uwsgi 설정을 확인해본 결과 nginx 서버는 정상적으로 작동중인 것으로 확인을 하였고, uwsgi가 문제인 것으로 판단하였음.
+```
+[uwsgi]
+chdir = /home/ubuntu/Django_Blog
+module = firehelper.wsgi:application
+
+uid = ubuntu
+gid = ubuntu
+
+#socket = /home/ubuntu/Django_Blog/Django_Blog.sock
+socket=:8000
+wsgi-file=/home/ubuntu/Django_Blog/firehelper/wsgi.py
+callable=application
+#chmod-socket = 664
+check-static = /home/ubuntu/Django_Blog/
+plugins=/usr/lib/uwsgi/plugins/python3_plugin.so
+
+enable-threads = true
+master = true
+vacuum = true
+pidfile = /home/ubuntu/Django_Blog/Django_Blog.pid
+logto = log/uwsgi/@(exec://date +%%Y-%%m-%%d).log
+log-reopen = true
+static-map = /static=.static_root/
+```
