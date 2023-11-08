@@ -47,19 +47,6 @@
 ### 3.1 프로젝트 구조
 📦@@231026-1107 2차 프로젝트(Django mini)  
  ┣ 📂.static_root  
- ┃ ┣ 📂admin  
- ┃ ┣ 📂css  
- ┃ ┣ 📂fonts  
- ┃ ┣ 📂images  
- ┃ ┣ 📂js  
- ┃ ┣ 📂scss  
- ┃ ┣ 📜about.html  
- ┃ ┣ 📜contact.html  
- ┃ ┣ 📜fashion.html  
- ┃ ┣ 📜index.html  
- ┃ ┣ 📜prepros-6.config  
- ┃ ┣ 📜single.html  
- ┃ ┗ 📜travel.html  
  ┣ 📂accounts  
  ┃ ┣ 📂migrations  
  ┃ ┣ 📂__pycache__  
@@ -103,19 +90,6 @@
  ┃ ┣ 📂blog  
  ┃ ┗ 📂profile_pics  
  ┣ 📂static  
- ┃ ┣ 📂css  
- ┃ ┣ 📂fonts  
- ┃ ┣ 📂images  
- ┃ ┣ 📂js  
- ┃ ┣ 📂scss  
- ┃ ┣ 📜.DS_Store  
- ┃ ┣ 📜about.html  
- ┃ ┣ 📜contact.html  
- ┃ ┣ 📜fashion.html  
- ┃ ┣ 📜index.html  
- ┃ ┣ 📜prepros-6.config  
- ┃ ┣ 📜single.html  
- ┃ ┗ 📜travel.html  
  ┣ 📂templates  
  ┃ ┣ 📂accounts  
  ┃ ┃ ┣ 📜agreement.html  
