@@ -223,6 +223,7 @@
 |<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b970c89a-8ae1-47cc-9fbf-b43a7ff3b372">|블로그진입, 글쓰기, 댓글, 수정, 대댓글, 삭제|
 <img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/70e8938d-c6c9-4ed7-aaf1-c1a87e983249">|게시글 수정 및 삭제|
 |<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/387408a6-2850-4652-82ee-143ba89e4f2b">|비밀번호 변경|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/def0b9d1-2693-404c-bb03-1bd73181c823">|404Error|
 ## 6. 메인 기능
 ### 블로그 CRUD 기능 구현
   - 게시글 작성 기능 
