@@ -346,7 +346,8 @@
     
     def post(self, request):
         u = User.objects.get(id=request.user.pk) # 로그인중인 사용자 객체를 얻어옴
-        user_form = UserForm(request.POST, instance=u) # 기존의 것의 업데이트하는 것 이므로 기존의 인스턴스를 넘겨줘야한다. 기존의 것을 가져와 수정하는 것
+        user_form = UserForm(request.POST, instance=u)
+        # 기존의 것의 업데이트하는 것 이므로 기존의 인스턴스를 넘겨줘야한다. 기존의 것을 가져와 수정하는 것
 
         # User 폼
         if user_form.is_valid():
@@ -360,7 +361,8 @@
 
         # Profile 폼
         if profile_form.is_valid():
-            profile = profile_form.save(commit=False) # 기존의 것을 가져와 수정하는 경우가 아닌 새로 만든 경우 user를 지정해줘야 하므로
+            profile = profile_form.save(commit=False)
+            # 기존의 것을 가져와 수정하는 경우가 아닌 새로 만든 경우 user를 지정해줘야 하므로
             profile.user = u
             profile.save()
 
