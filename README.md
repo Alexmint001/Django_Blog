@@ -171,10 +171,10 @@
 
 ### 3.3 개발 일정
 <div align="center">
-<img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/11ea9ce8-1f56-4421-af63-861caae0118e"><br>
-- 타임라인 - - 이미지 수정필요<br>
+<img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b9a92a8a-f022-4d4a-9743-29bbc397cb58"><br>
+- 타임라인 -<br>
 <br>
-<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTFwCOIqyeuh7OkWWQB_4qvELZhDqfBEf_jH9kVLdXrmFex1ZbhvHiPnWeqkIH5n0lYfam2PaW7BRX/pubhtml">WBS 스프레드시트 링크</a>
+<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTFwCOIqyeuh7OkWWQB_4qvELZhDqfBEf_jH9kVLdXrmFex1ZbhvHiPnWeqkIH5n0lYfam2PaW7BRX/pubhtml">WBS 스프레드시트 링크</a><br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b56bee4f-07e7-4aa5-b8e3-f5eb8ee28a9f"><br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/36cd9cd4-37f3-4c86-b0a3-db0c10084437"><br>
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ba43a159-fb26-4147-96d2-b312ee47479e"><br>
@@ -186,8 +186,9 @@
 <img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ee50c0b9-2cab-47a7-8c4d-3e6b0859084c"><br>
 - 기능 요구사항(마인드맵) - <br>
 <br>
-<img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ac898123-b17e-461b-9981-f8c677b6e229"><br>
-- 데이터베이스 모델링(ERD 설계) - 이미지 수정필요 <br>
+<img width="800" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/9a2b6f7c-64c0-441b-8097-ad64f04b4a25"><br>
+- 데이터베이스 모델링(ERD 설계)<br>
+
 </div>
 
 ## 5. UI
@@ -198,22 +199,28 @@
 |-|-|
 |<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d9d0cdc3-cb80-41a0-9b02-f7e224d5a346">01_메인페이지 - 로그인 전|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/41c2559b-d4c6-41f2-a4e6-c27f4c676c57">02_회원가입 페이지|
 |<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/9ee28c98-44b2-4f2d-ac42-e3de627b50a0">03_프로필 페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/71b47345-72b3-479c-b75e-e7970d8739d9">04_메인페이지 - 로그인 후|
-|<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b97dfc1d-8c68-42c2-978e-1855e4439b8e">05_카테고리 별 페이지|<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/cdd3b93c-c6c1-41fe-8b73-391f78ded4ec">06_콘텐츠 별 페이지|
-|<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/8489a293-75ad-4d96-a700-6a447a6ddc3c">07_댓글 작성 시 페이지|<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/47bd4c0a-a2dc-477b-b8ec-033e5275c363">08_글 작성 시 페이지|
-|<img width="500" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ad3e88e0-db38-4f1f-8024-1a9090772640">08_글 수정 시 페이지||
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b97dfc1d-8c68-42c2-978e-1855e4439b8e">05_카테고리 별 페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/cdd3b93c-c6c1-41fe-8b73-391f78ded4ec">06_콘텐츠 별 페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/8489a293-75ad-4d96-a700-6a447a6ddc3c">07_댓글 작성 시 페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/47bd4c0a-a2dc-477b-b8ec-033e5275c363">08_글 작성 시 페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/ad3e88e0-db38-4f1f-8024-1a9090772640">08_글 수정 시 페이지||
 
 ### 5-2. 실제 UI
 
 |||
 |-|-|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/834269c6-b393-439d-9239-31779f956f62">01_메인페이지 - 로그인 전|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/82263f9d-cea0-40b5-bfc2-756fd5257ee6"><br>02_회원가입 페이지|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/66ad9ddd-5daf-4357-9cb9-ba66647e9fc0">03_프로필 페이지|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/7491d809-41ea-49da-a831-475f012dae99"><br>04_메인페이지 - 로그인 후|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/740fc51f-78a0-400f-93f4-9d937b8b6456">05_블로그 입장|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/dd244027-c34e-4730-86d7-c1e7f00f8830"><br>06_about페이지|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/db446e43-2b46-4a45-afae-f1712b82c2b7">07_카테고리별페이지-1|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/93529fb7-b47e-487f-aeb5-034193b9b9bd"><br>08_카테고리별페이지-2|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/6949b66d-1269-4cb6-a462-861f07dd750f">09_태그별페이지|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/004eef28-0f1d-4cf7-8ed2-03ed72540763"><br>10_콘텐츠별페이지|
-|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/e6b34e41-ebae-4135-9c28-5a5d18437882">11_댓글작성페이지|<img width="95%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d6be06d0-fc00-4a8b-91bf-30ded70a47f0"><br>12_대댓글작성페이지|
-|13_404Error 페이지||
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d791421b-ee8a-4f3c-a77f-48dec984869a">01_메인페이지 - 로그인 전|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/f8c368ae-1aa2-4027-907d-1de0a5d02088">02_회원가입 페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/66ad9ddd-5daf-4357-9cb9-ba66647e9fc0">03_프로필 페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/7491d809-41ea-49da-a831-475f012dae99">04_메인페이지 - 로그인 후|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/740fc51f-78a0-400f-93f4-9d937b8b6456">05_블로그 입장|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/dd244027-c34e-4730-86d7-c1e7f00f8830">06_about페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/db446e43-2b46-4a45-afae-f1712b82c2b7">07_카테고리별페이지-1|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/93529fb7-b47e-487f-aeb5-034193b9b9bd">08_카테고리별페이지-2|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/6949b66d-1269-4cb6-a462-861f07dd750f">09_태그별페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/004eef28-0f1d-4cf7-8ed2-03ed72540763">10_콘텐츠별페이지|
+|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/e6b34e41-ebae-4135-9c28-5a5d18437882">11_댓글작성페이지|<img width="100%" alt="image" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/d6be06d0-fc00-4a8b-91bf-30ded70a47f0">12_대댓글작성페이지|
+|<img width="100%" alt="13_404Error페이지" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/780c2bd4-0bee-46f1-b2cf-b5661c7db2c5">13_404Error 페이지||
 
+### 5-3. 기능 별 GIF
+|||
+|-|-|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/3e30c1f3-48b3-4e0b-bc12-f49ea9ce5f8f">회원가입 및 로그인|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/922df739-2bff-4bb5-81c1-60ae93b1ccd1">카테고리 및 태그 별 게시글, 검색 기능|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/b970c89a-8ae1-47cc-9fbf-b43a7ff3b372">블로그진입, 글쓰기, 댓글, 수정, 대댓글, 삭제|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/70e8938d-c6c9-4ed7-aaf1-c1a87e983249">게시글 수정 및 삭제|
+|<img width="100%" alt="" src="https://github.com/Alexmint001/Django_Blog/assets/142385654/387408a6-2850-4652-82ee-143ba89e4f2b">비밀번호 변경||
 ## 6. 메인 기능
 ### 블로그 CRUD 기능 구현
   - 게시글 작성 기능 
@@ -364,6 +371,23 @@
     context_object_name = 'posts'
     paginate_by = 5
     ```
+    ```html
+    ...생략...
+    <ul>
+        {% if page_obj.has_previous %}
+            <li><a href="?page={{page_obj.previous_page_number}}">&lt;</a></li>
+        {% endif %}
+    
+        {% for p in page_obj.paginator.page_range %}
+            <li><a href="?page={{p}}" class="mx-1">{{p}}</a></li>
+        {% endfor %}
+    
+        {% if page_obj.has_next %}
+                <li><a href="?page={{page_obj.next_page_number}}">&gt;</a></li>
+        {% endif %}
+    </ul>
+    ...생략...
+    ```
 ## 8. 개발하며 경험한 오류와 해결방법
 - 2023.10.26
   - admin 페이지 깨지는 문제
@@ -441,4 +465,31 @@
     - `CommentUpdateView` 클래스를 구현하면서 `comment`를 수정하고, `post`의 pk값을 받는 것으로 구현하여 문제가 발생한 것으로 확인.
   - 해결방안
     - `models.py`에서 `comment`에 `post`를 외래키로 이미 구현을 해놓았기 때문에 `comment`의 `post`로 접근을 하고, `html`파일에서 `comment.pk`를 인자로 받도록 수정하여 해결하였음.
-   
+    ```python
+    class CommentUpdateView(UserPassesTestMixin, UpdateView):
+        model = Comment
+        form_class = CommentForm
+        template_name = 'blog/form.html'
+    
+        def test_func(self):
+            return self.get_object().author == self.request.user
+    
+        def form_valid(self, form):
+            comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
+            form.instance.author = self.request.user
+            form.instance.post = comment.post
+            return super().form_valid(form)
+    
+        def get_success_url(self):
+            return reverse_lazy('blog:post_detail', kwargs = {'pk':self.object.post.pk})
+    ```
+    ```html
+    ...생략...
+    <form action="{% url 'blog:comment_edit' comment.pk %}" method="post">
+        <div>
+            {% csrf_token %}
+            <input type="text" name="comment_content" placeholder="Edit">
+        </div>
+    </form>
+    ...생략...
+    ```
