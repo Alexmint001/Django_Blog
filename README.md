@@ -413,7 +413,7 @@
     - `Django`의 admin 페이지는 정적파일인 (JavaScript, CSS 등)을 사용하기 때문에 `DEBUG` 설정이 `False`인 상태에서 페이지가 깨지는 문제가 발생할 수 있습니다.
   - 해결방안
     - 정적 파일을 따로 제공하는 `collectstatic` 명령어를 사용하여 `STATIC_ROOT`에 지정된 위치로 복사하여 `DEBUG` 설정이 `FALSE` 이더라도 정적파일을 사용할 수 있도록 하여 해결하였음.
-    - 추가로 DEBUG=TRUE는 개발할 때만 사용하는 설정이며, 배포 시에는 FALSE로 놓고, 정적파일 관리는 nginx 서버에서 하도록 설정해야한다.
+    - 추가로 `DEBUG=TRUE`는 개발할 때만 사용하는 설정이며, 배포 시에는 FALSE로 놓고, 정적파일 관리는 nginx 서버에서 하도록 설정해야한다.
 - 2023.10.27
   - 카테고리 context 문제
     - 원인: `blog`의 `views.py`에서 `category.html`로만 `context`를 넘기는 것 때문에 `base.html`에서 해당 `context`를 받고 싶어도 받을 수 없었다.
