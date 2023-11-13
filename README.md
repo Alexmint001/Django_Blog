@@ -300,7 +300,7 @@
   - 해결방안
     - `models.py`에서 `comment`에 `post`를 외래키로 이미 구현을 해놓았기 때문에 `comment`의 `post`로 접근을 하고, `html`에서 `comment.pk`를 인자로 받도록 수정하여 해결하였음.
     <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/blog/views.py#L156C1-L172C5">`CommentUpdateView 소스코드 링크`</a><br>
-    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/templates/blog/post_detail.html#L101C45-L106C52">`templates/blog/post_detail.html 댓글 수정 부분 소스코드 링크`</a>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/templates/blog/post_detail.html#L101C45-L106C52">`templates/blog/post_detail.html 댓글 수정 부분 소스코드 링크`</a><br>
 2023.11.06
 - AWS lightsail 배포 후 정상적으로 실행되다가 `git pull`하고 나서 media 폴더를 로드하지 못하는 문제가 발생
     - 원인: nginx와 uwsgi 설정을 확인해본 결과 nginx 서버는 정상적으로 작동중인 것으로 확인을 하였고, uwsgi가 문제인 것으로 판단하였음.
