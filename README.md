@@ -222,38 +222,12 @@
     - `PostDeleteView(UserPassesTestMixin, DeleteView)`로 구현
 
   - 게시글 검색 기능 ( 카테고리 및 태그에 따라 검색이 가능 )
-    - 전체 글 검색 (`PostListView`에 구현하였습니다.)
-    ```python
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        q = self.request.GET.get('q', '')
-
-        if q:
-            queryset = queryset.filter(Q(title__icontains=q) | Q(content__icontains=q))
-        return queryset
-    ```
-    - 카테고리 별 검색 (`CategoryListView`에 구현하였습니다.)
-    ```python
-    def get_queryset(self):
-        self.category = get_object_or_404(Category, name=self.kwargs['category_name'])
-        qc = super().get_queryset().filter(category=self.category)
-
-        q = self.request.GET.get('q', '')
-        if q:
-            qc = qc.filter(Q(title__icontains=q) | Q(content__icontains=q))
-        return qc
-    ```
-    - 태그 별 검색 (`TagListView`에 구현하였습니다.)
-    ```python
-    def get_queryset(self):
-        self.tag = get_object_or_404(Tag, name=self.kwargs['tag_name'])
-        qt = super().get_queryset().filter(tags__name=self.tag)
-
-        q = self.request.GET.get('q', '')
-        if q:
-            qt = qt.filter(Q(title__icontains=q) | Q(content__icontains=q))
-        return qt
-    ```
+    - 전체 글 검색 (`PostListView`에 구현하였습니다.)<br>
+        <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/blog/views.py#L11C1-L25C24">`PostListView 소스코드 링크`</a>
+    - 카테고리 별 검색 (`CategoryListView`에 구현하였습니다.)<br>
+        <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/blog/views.py#L86C1-L107C23">`CategoryListView 소스코드 링크`</a>
+    - 태그 별 검색 (`TagListView`에 구현하였습니다.)<br>
+        <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/blog/views.py#L112C1-L133C23">`TagListView 소스코드 링크`</a>
 
 ### 로그인/회원가입 기능
   - 회원가입 기능 
@@ -266,82 +240,12 @@
   - 게시글 내 사진 업로드 (`models.py`에 `Imagefield` 추가)
   - 조회수 증가 (`models.py`에 `PositiveIntegerField` 추가)
   - 비밀번호 변경 기능
-    - 함수형으로 구현
-    ```python
-    # views.py
-    @login_required
-    def change_password(request):
-        if request.method == "POST":
-            form = PasswordChangeForm(request.user, request.POST)
-            if form.is_valid():
-                user = form.save()
-                update_session_auth_hash(request, user)
-                messages.success(request, 'Password successfully changed')
-                return redirect('accounts:profile')
-            else:
-                messages.error(request, 'Password not changed')
-        else:
-            form = PasswordChangeForm(request.user)
-            return render(request, 'accounts/change_password.html',{'form':form})
-    ```
-    ```python
-    # forms.py
-    class PasswordChangeForm(AuthPasswordChangeForm):
-    def clean_new_password1(self):
-        old_password = self.cleaned_data.get('old_password')
-        new_password1 = self.cleaned_data.get('new_password1')
-        
-        if old_password and new_password1:
-            if old_password == new_password1:
-                raise forms.ValidationError('새로운 암호는 기존 암호와 다르게 입력해주세요.')
-        return new_password1
-    ```
+    - 함수형으로 구현<br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/accounts/views.py#L77C30-L77C30">`accounts/views.py 소스코드 링크`</a><br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/accounts/forms.py#L6C1-L14C29">`accounts/forms.py 소스코드 링크`</a><br>
   - 프로필 수정 기능
-    - `ProfileUpdateView(View)`로 구현
-    ```python
-    class ProfileUpdateView(View):
-    def get(self, request):
-        user = get_object_or_404(User, pk=request.user.pk)
-        user_form = UserForm(initial = {
-            'first_name': user.first_name,
-            'last_name': user.last_name,
-        })
-        
-        if hasattr(user, 'profile'):
-            profile = user.profile
-            profile_form = ProfileForm(initial={
-                'nickname': profile.nickname,
-                'profile_image': profile.profile_image,
-            })
-        else:
-            profile_form = ProfileForm()
-            
-        return render(request, 'accounts/profile_update.html', {"user_form": user_form, "profile_form": profile_form})
-    
-    def post(self, request):
-        u = User.objects.get(id=request.user.pk) # 로그인중인 사용자 객체를 얻어옴
-        user_form = UserForm(request.POST, instance=u)
-        # 기존의 것의 업데이트하는 것 이므로 기존의 인스턴스를 넘겨줘야한다. 기존의 것을 가져와 수정하는 것
-
-        # User 폼
-        if user_form.is_valid():
-            user_form.save()
-
-        if hasattr(u, 'profile'):
-            profile = u.profile
-            profile_form = ProfileForm(request.POST, request.FILES, instance=profile) # 기존의 것 가져와 수정하는 것
-        else:
-            profile_form = ProfileForm(request.POST, request.FILES) # 새로 만드는 것
-
-        # Profile 폼
-        if profile_form.is_valid():
-            profile = profile_form.save(commit=False)
-            # 기존의 것을 가져와 수정하는 경우가 아닌 새로 만든 경우 user를 지정해줘야 하므로
-            profile.user = u
-            profile.save()
-
-        return redirect('accounts:profile') # 수정된 화면으로 리다이렉트
-    ```
+    - `ProfileUpdateView(View)`로 구현<br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/accounts/views.py#L14">`ProfileUpdateView 소스코드 링크`</a><br>
   - 닉네임 추가 기능
   - 댓글 추가
     - `CommentCreateView(LoginRequiredMixin, CreateView)`로 구현
@@ -352,33 +256,9 @@
   - 대댓글
     - `ReCommentCreateView(LoginRequiredMixin, CreateView)`로 구현
   - 페이지네이션 기능 구현
-    - `ListView`에 내장된 `paginate` 기능을 사용하였음.
-    ```python
-    class PostListView(ListView):
-    model = Post
-    ordering = '-pk'
-
-    template_name = 'blog/post_list.html'
-    context_object_name = 'posts'
-    paginate_by = 5
-    ```
-    ```html
-    ...생략...
-    <ul>
-        {% if page_obj.has_previous %}
-            <li><a href="?page={{page_obj.previous_page_number}}">&lt;</a></li>
-        {% endif %}
-    
-        {% for p in page_obj.paginator.page_range %}
-            <li><a href="?page={{p}}" class="mx-1">{{p}}</a></li>
-        {% endfor %}
-    
-        {% if page_obj.has_next %}
-                <li><a href="?page={{page_obj.next_page_number}}">&gt;</a></li>
-        {% endif %}
-    </ul>
-    ...생략...
-    ```
+    - `ListView`에 내장된 `paginate` 기능을 사용하였음.<br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/blog/views.py#L15C4-L17C20">`PostListView paginate 소스코드 링크`</a><br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/templates/blog/post_list.html#L42C32-L54C38">`paginate 적용 html 소스코드 링크`</a><br>
 ## 8. 개발하며 경험한 오류와 해결방법
 - 2023.10.26
   - admin 페이지 깨지는 문제
@@ -392,47 +272,10 @@
   - 카테고리 context 문제
     - 원인: `blog`의 `views.py`에서 `category.html`로만 `context`를 넘기는 것 때문에 `base.html`에서 해당 `context`를 받고 싶어도 받을 수 없었다.
   - 해결방안
-    - `html`로 넘기고 싶은 `context`만 따로 utils폴더에 py파일로 만든 후 `settings.py`에 `context_procerssers`로 넘겨서 전체 파일에서 접근할 수 있도록 하였음.
-  ```python
-  # utils/context_processors.py
-  from blog.models import Category
-
-  def categories(request):
-      return {
-          'categories': Category.objects.all(),
-              }
-  ```
-  ```python
-  # settings.py
-  TEMPLATES = [
-      {
-          'BACKEND': 'django.template.backends.django.DjangoTemplates',
-          'DIRS': [BASE_DIR / 'templates'],
-          'APP_DIRS': True,
-          'OPTIONS': {
-              'context_processors': [
-                  'utils.context_processors.categories', # <- 해당 부분에 추가
-                  'django.template.context_processors.debug',
-                  'django.template.context_processors.request',
-                  'django.contrib.auth.context_processors.auth',
-                  'django.contrib.messages.context_processors.messages',
-              ],
-          },
-      },
-  ]
-  ```
-  ```html
-  # base_detail.html
-  ...생략...
-  {% for category in categories %} <!-- context_processors.py에서 작성한 categories로 접근 -->
-      <li>
-          <a href="{% url 'blog:category' category.name %}">
-              {{ category.category_name }}
-          </a>
-      </li>
-  {% endfor %}
-  ...생략...
-  ```
+    - `html`로 넘기고 싶은 `context`만 따로 utils폴더에 py파일로 만든 후 `settings.py`에 `context_procerssers`로 넘겨서 전체 파일에서 접근할 수 있도록 하였음.<br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/utils/context_processors.py#L1C1-L11C14">`utils/context_processors.py 소스코드 링크`</a><br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/firehelper/settings.py#L68C9-L76C15">`firehelper/settings.py 소스코드 링크`</a><br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/templates/base_detail.html#L22C9-L28C25">`templates/base_detail.py 소스코드링크`</a><br>
 - 2023.10.30
   - 프로필 업데이트 기능 추가하다가 `405 Error` 발생
     ```
@@ -456,34 +299,8 @@
     - `CommentUpdateView` 클래스를 구현하면서 `comment`를 수정하고, `post`의 pk값을 받는 것으로 구현하여 문제가 발생한 것으로 확인.
   - 해결방안
     - `models.py`에서 `comment`에 `post`를 외래키로 이미 구현을 해놓았기 때문에 `comment`의 `post`로 접근을 하고, `html`에서 `comment.pk`를 인자로 받도록 수정하여 해결하였음.
-    ```python
-    class CommentUpdateView(UserPassesTestMixin, UpdateView):
-        model = Comment
-        form_class = CommentForm
-        template_name = 'blog/form.html'
-    
-        def test_func(self):
-            return self.get_object().author == self.request.user
-    
-        def form_valid(self, form):
-            comment = get_object_or_404(Comment, pk=self.kwargs['pk'])
-            form.instance.author = self.request.user
-            form.instance.post = comment.post
-            return super().form_valid(form)
-    
-        def get_success_url(self):
-            return reverse_lazy('blog:post_detail', kwargs = {'pk':self.object.post.pk})
-    ```
-    ```html
-    ...생략...
-    <form action="{% url 'blog:comment_edit' comment.pk %}" method="post">
-        <div>
-            {% csrf_token %}
-            <input type="text" name="comment_content" placeholder="Edit">
-        </div>
-    </form>
-    ...생략...
-    ```
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/blog/views.py#L156C1-L172C5">`CommentUpdateView 소스코드 링크`</a><br>
+    <a href="https://github.com/Alexmint001/Django_Blog/blob/ed5527eaad667069368f25a2e4eef44f6dffb816/templates/blog/post_detail.html#L101C45-L106C52">`templates/blog/post_detail.html 댓글 수정 부분 소스코드 링크`</a>
 2023.11.06
 - AWS lightsail 배포 후 정상적으로 실행되다가 `git pull`하고 나서 media 폴더를 로드하지 못하는 문제가 발생
     - 원인: nginx와 uwsgi 설정을 확인해본 결과 nginx 서버는 정상적으로 작동중인 것으로 확인을 하였고, uwsgi가 문제인 것으로 판단하였음.
