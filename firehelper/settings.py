@@ -1,3 +1,4 @@
+# git 해결
 import os, json
 from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
