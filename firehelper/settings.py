@@ -1,4 +1,4 @@
-# git 해결해보자dkdk
+# git 해결해보자
 import os, json
 from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
